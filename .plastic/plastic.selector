@@ -1,0 +1,4 @@
+repository "Project Solo@Project_Solo@cloud"
+  path "/"
+    br "/main"
+    co "/main"
