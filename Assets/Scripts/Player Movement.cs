@@ -4,11 +4,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
-    private GameObject LeftLeg;
-    [SerializeField]
-    private GameObject RightLeg;
-
-    [SerializeField]
     private Rigidbody2D LeftLegRB;
     [SerializeField]
     private Rigidbody2D RightLegRB;
@@ -44,11 +39,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         IsGround = Physics2D.OverlapCircle(PlayerPos.position, PositionRadius, Ground);
-        if (IsGround && Input.GetKeyDown(KeyCode.Space))
-        {
-            PlayerRB.AddForce(Vector2.up * JumpForce);
-        }
-
     }
 
     private IEnumerator Move(float seconds)
@@ -58,6 +48,14 @@ public class PlayerMovement : MonoBehaviour
             LeftLegRB.AddForce(Vector2.right * (Speed * 1000) * Time.deltaTime);
             yield return new WaitForSeconds(seconds);
             RightLegRB.AddForce(Vector2.right * (Speed * 1000) * Time.deltaTime);
+        }
+    }
+
+    public void OnClickJump()
+    {
+        if (IsGround)
+        {
+            PlayerRB.AddForce(Vector2.up * JumpForce);
         }
     }
 }
