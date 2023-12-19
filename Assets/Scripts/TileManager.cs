@@ -10,13 +10,11 @@ public class TileManager : MonoBehaviour
     private Transform playerTransform;
 
     private float spawnZ = 0.0f;
-    private float tileLength = 10.0f;
-    private int amnTilesOnScreen = 3;
+    private const float tileLength = 10.0f;
+    private const int amnTilesOnScreen = 3;
 
     [SerializeField]
     private List<GameObject> activeTiles = new List<GameObject>();
-    [SerializeField]
-    private List<GameObject> deactiveTiles = new List<GameObject>();
 
     private void Start()
     {

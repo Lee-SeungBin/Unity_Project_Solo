@@ -7,11 +7,6 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private Text scoreText;
-    void Start()
-    {
-
-    }
-
 
     void Update()
     {

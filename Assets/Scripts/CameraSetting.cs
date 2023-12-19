@@ -8,12 +8,12 @@ public class CameraSetting : MonoBehaviour
 
     private void Start()
     {
-        startOffset = transform.position - player.position;
+        startOffset = new Vector3(0, 0, transform.position.z - player.position.z);
     }
 
     private void Update()
     {
-        transform.position = player.position + startOffset;
+        transform.position = new Vector3(transform.position.x, transform.position.y, player.position.z + startOffset.z);
         //Vector3 targetPos = new Vector3(player.position.x, player.position.y, this.transform.position.z);
 
         //targetPos.x = Mathf.Clamp(targetPos.x, MinCameraBoundary.x, MaxCameraBoundary.x);
