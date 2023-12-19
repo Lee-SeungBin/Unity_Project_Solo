@@ -45,6 +45,11 @@ public class PlayerMovement : MonoBehaviour
     {
         while (true)
         {
+            if (!LeftLegRB.gameObject.activeSelf && !RightLegRB.gameObject.activeSelf)
+            {
+                Debug.Log("fs");
+                yield break;
+            }
             LeftLegRB.AddForce(Vector2.right * (Speed * 1000) * Time.deltaTime);
             yield return new WaitForSeconds(seconds);
             RightLegRB.AddForce(Vector2.right * (Speed * 1000) * Time.deltaTime);

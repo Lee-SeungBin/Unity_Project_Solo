@@ -3,21 +3,22 @@ using UnityEngine;
 public class CameraSetting : MonoBehaviour
 {
     [SerializeField]
-    private Transform Player;
-    [SerializeField]
-    private float Smoothing = 0.2f;
-    [SerializeField]
-    private Vector2 MinCameraBoundary;
-    [SerializeField]
-    private Vector2 MaxCameraBoundary;
+    private Transform player;
+    private Vector3 startOffset;
 
-    private void FixedUpdate()
+    private void Start()
     {
-        Vector3 targetPos = new Vector3(Player.position.x, Player.position.y, this.transform.position.z);
+        startOffset = transform.position - player.position;
+    }
+
+    private void Update()
+    {
+        transform.position = player.position + startOffset;
+        //Vector3 targetPos = new Vector3(player.position.x, player.position.y, this.transform.position.z);
 
         //targetPos.x = Mathf.Clamp(targetPos.x, MinCameraBoundary.x, MaxCameraBoundary.x);
         //targetPos.y = Mathf.Clamp(targetPos.y, MinCameraBoundary.y, MaxCameraBoundary.y);
 
-        transform.position = Vector3.Lerp(transform.position, targetPos, Smoothing);
+        //transform.position = Vector3.Lerp(transform.position, player.position + startOffset, smoothing);
     }
 }
