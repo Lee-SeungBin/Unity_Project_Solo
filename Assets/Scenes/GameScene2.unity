@@ -619,6 +619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 1524494195}
+  eventSystem: {fileID: 941243277}
 --- !u!143 &1524494195
 CharacterController:
   m_ObjectHideFlags: 0

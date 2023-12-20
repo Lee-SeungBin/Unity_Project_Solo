@@ -47,10 +47,11 @@ public class Player : MonoBehaviour
             {
                 case TouchPhase.Began:
                     inputStartPos = touch.position;
-                    isDragging = true;
+                    isDragging = false;
                     break;
 
                 case TouchPhase.Moved:
+                    isDragging = true;
                     inputEndPos = touch.position;
                     break;
 
@@ -63,14 +64,9 @@ public class Player : MonoBehaviour
 
         if (isDragging)
         {
-            Vector3 dragDelta;
-
-#if UNITY_EDITOR
+            Vector2 dragDelta;
             dragDelta = inputEndPos - inputStartPos;
-#else
-            // 모바일 환경에서는 월드 좌표로 변환 필요
-            dragDelta = Camera.main.ScreenToWorldPoint(inputEndPos) - Camera.main.ScreenToWorldPoint(inputStartPos);
-#endif
+
 
             Vector3 moveDirection = new Vector3(dragDelta.x, 0, 0).normalized;
 
